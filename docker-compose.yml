@@ -3,7 +3,7 @@ services:
     build:
       context: .
     ports:
-      - "8001:8000"
+      - "8000:8000"
     command: >
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
@@ -15,7 +15,7 @@ services:
       - .env
 
   db:
-    image: postgres:18-alpine
+    image: postgres:16-alpine
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
